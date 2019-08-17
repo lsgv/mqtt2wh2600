@@ -43,11 +43,12 @@ values like the mqtt url and add the ip address of the weather station.
     "log": "debug",
     "mqtt": {
         "url": "mqtt://192.168.1.10",
-        "name": "swissmeteo",
+        "name": "wh2600",
         "secure": false
     },
     "wh2600": {
-        "pollInterval": 16,
+        "pollIntervalSec": 16,
+        "name": "My Station",
         "address": "192.168.1.20"
     }
 }
@@ -57,4 +58,72 @@ values like the mqtt url and add the ip address of the weather station.
 
 ### Publish (status messages)
 
-tbd
+Every 16 seconds, the da    ta from the WH2600 weather stations is updated. All
+values will be published to the MQTT in dedicated topics. The following topics
+are be published for the station *My Station*. The latest value is in the JSON
+payload field `val`,
+
+* `indoorSensorId`  
+  Id of the indoor sensor.
+* `indoorSensorBatteryStatus`  
+  Current battery status of the indoor sensor.
+* `outdoorSensor1Id`  
+  Id of the outdoor sensor 1.
+* `outdoorSensor1BatteryStatus`  
+  Current battery status of the outdoor sensor 1.
+* `outdoorSensor2Id`  
+  Id of the outdoor sensor. 2
+* `outdoorSensor2BatteryStatus`  
+  Current battery status of the outdoor sensor 2.
+* `wh2600/temperature/My Station`  
+  Current air temperature in `°C`.
+* `wh2600/precipitation/My Station`  
+  Current precipitation in `mm`.
+* `wh2600/precipitation10Min/My Station`  
+  Total precipitation during the last ten minutes in `mm`.
+* `wh2600/precipitationHourly/My Station`  
+  Total precipitation during the last hour in `mm`.
+* `wh2600/precipitationDaily/My Station`  
+  Total precipitation during the last day in `mm`.
+* `wh2600/precipitationWeekly/My Station`  
+  Total precipitation during the last week in `mm`.
+* `wh2600/precipitationMonthly/My Station`  
+  Total precipitation during the last month in `mm`.
+* `wh2600/precipitationYearly/My Station`  
+  Total precipitation during the last year in `mm`.
+* `wh2600/sunshine/My Station`  
+  Current sunshine as `bool`.
+* `wh2600/sunshine10Min/My Station`  
+  Total sunshine duration during the last ten minutes in `min`.
+* `wh2600/radiation/My Station`  
+  Current radiation in `W/m²`.
+* `wh2600/radiation10Min/My Station`  
+  Mean radiation during the last ten minutes in `W/m²`.
+* `wh2600/humidity/My Station`  
+  Current relative air humidity in `%`.
+* `wh2600/windDirection/My Station`  
+  Current wind direction in `°`.
+* `wh2600/windDirection10Min/My Station`  
+  Mean wind direction during the last ten minutes in `°`.
+* `wh2600/windSpeed/My Station`  
+  Current wind speed in `km/h`.
+* `wh2600/windSpeed10Min/My Station`  
+  Mean wind speed during the last ten minutes in `km/h`.
+* `wh2600/gustPeak/My Station`  
+  Current maximum gust peak in `km/h`.
+* `wh2600/gustPeak10Min/My Station`  
+  Maximum gust peak during the last ten minutes in `km/h`.
+* `wh2600/pressureAbsolute/My Station`  
+  Current pressure at station level (QFE) in `hPa`.
+* `wh2600/pressureRelative/My Station`  
+  Current pressure at sea level (QFF) in `hPa`.
+
+## Station Settings
+
+Ensure the following stations settings are set:
+
+* Wind: `km/h`
+* Rainfall: `mm`
+* Pressure: `hpa`
+* Temperature: `degC`
+* Solar Radiation: `w/m2`
