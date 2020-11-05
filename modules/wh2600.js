@@ -270,7 +270,7 @@ function getWeatherData (address, callback) {
 
             const rawRainOfHourly = Number($('input[name="rainofhourly"]').val())
             const rawSolarRad = Number($('input[name="solarrad"]').val())
-            const rawWinDir = Number($('input[name="windir"]').val())
+            const rawWinDir = Number($('input[name="avgwind"]').val())
             const rawWindSpeed = Number($('input[name="windspeed"]').val())
             const rawGustSpeed = Number($('input[name="gustspeed"]').val())
 
