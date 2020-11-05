@@ -1,13 +1,13 @@
 {
     "log": "debug",
     "mqtt": {
-        "url": "mqtt://192.168.1.10",
+        "url": "mqtt://192.168.2.43",
         "name": "wh2600",
         "secure": false
     },
     "wh2600": {
         "pollIntervalSec": 16,
-        "name": "My Weather Station",
-        "address": "192.168.1.20"
+        "name": "lapa",
+        "address": "192.168.2.99"
     }
 }
